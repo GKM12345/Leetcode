@@ -3,7 +3,7 @@ public:
     int maxProduct(vector<string>& words) {
         int n=words.size();
         
-        set<int> arr[26];
+        unordered_set<int> arr[26];
         for(int i=0;i<n;i++)
         {
             int m=words[i].size();
