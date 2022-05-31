@@ -3,14 +3,13 @@ public:
     int integerBreak(int n) {
         
         vector<int> dp(59);
-        dp[2]=1;
-        for(int i=3;i<=58;i++)
+        dp[2]=1;dp[3]=2;dp[4]=4;dp[5]=6;dp[6]=9;
+        for(int i=7;i<=n;i++)
         {
             for(int j=i-1;j>=2;j--)
             {
-                int ans1=j*(i-j);
                 int val=dp[j]*(i-j);
-                dp[i]=max(dp[i],max(val,ans1));
+                dp[i]=max(dp[i],val);
             }
         }
         
