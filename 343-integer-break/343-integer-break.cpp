@@ -4,7 +4,7 @@ public:
         
         vector<int> dp(59);
         dp[2]=1;
-        for(int i=3;i<=n;i++)
+        for(int i=3;i<=58;i++)
         {
             for(int j=i-1;j>=2;j--)
             {
