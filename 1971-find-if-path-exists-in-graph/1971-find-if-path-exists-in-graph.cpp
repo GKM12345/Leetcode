@@ -1,17 +1,24 @@
 class Solution {
     
-    bool helper(vector<int> *adj, int n, int s, int d, vector<bool> &visited)
+    bool bfs(vector<int> *adj, int n, int s, int d)
     {
-        if(s==d) return true;
+        vector<int> visited(n,0);
+        queue<int> Q;
+        Q.push(s);
         visited[s]=true;
-        for(int i=0;i<adj[s].size();i++)
+        while(Q.size()!=0)
         {
-            if(visited[adj[s][i]]==false)
+            int node=Q.front();
+            Q.pop();
+            if(node==d) return true;
+            for(int i=0;i<adj[node].size();i++)
             {
-                bool found=helper(adj,n,adj[s][i],d,visited);
-                if(found==true) return true;
+                if(visited[adj[node][i]]==false)
+                {
+                    Q.push(adj[node][i]);
+                    visited[adj[node][i]]=true;
+                }
             }
-            
         }
         
         return false;
@@ -23,14 +30,11 @@ public:
         vector<int> adj[n];
         for(int i=0;i<edges.size();i++)
         {
-            int u=edges[i][0];
-            int v=edges[i][1];
-            adj[u].push_back(v);
-            adj[v].push_back(u);
+            adj[edges[i][0]].push_back(edges[i][1]);
+            adj[edges[i][1]].push_back(edges[i][0]);
         }
         
-        vector<bool> visited(n,false);
-        return helper(adj,n,source,destination, visited);
+        return bfs(adj,n,source,destination);
         
     }
 };
