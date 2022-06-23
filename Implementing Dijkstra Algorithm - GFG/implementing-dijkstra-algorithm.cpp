@@ -26,12 +26,12 @@ class Solution
             int node=Node.second;
             
             
-            for(int i=0;i<adj[node].size();i++)
+            for(auto it:adj[node])
             {
-                if((tonode+adj[node][i][1])<dist[adj[node][i][0]])
+                if((tonode+it[1])<dist[it[0]])
                 {
-                    dist[adj[node][i][0]]=tonode+adj[node][i][1];
-                    minpq.push({dist[adj[node][i][0]],adj[node][i][0]});
+                    dist[it[0]]=tonode+it[1];
+                    minpq.push({dist[it[0]],it[0]});
                 }
             }
         }
