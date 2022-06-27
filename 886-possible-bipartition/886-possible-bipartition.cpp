@@ -11,10 +11,8 @@ class Solution {
             }
             else if(like[it]==-1)
             {
-               int colour;
-                if(color==0) colour=1;
-                else colour=0;
-                bool ans=bipartite(adj,it,like,colour);
+
+                bool ans=bipartite(adj,it,like,(1^color));
                 if(ans==false)
                 {
                     return false;
