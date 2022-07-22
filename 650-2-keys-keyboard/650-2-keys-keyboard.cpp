@@ -19,7 +19,7 @@ public:
         else if(i==1)
         {
             int curr_step=n;
-            totalStep=min(totalStep,curr_step);
+           totalStep=min(totalStep,curr_step);
         }
         
     }
