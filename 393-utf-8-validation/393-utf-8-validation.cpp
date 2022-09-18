@@ -1,18 +1,85 @@
 class Solution {
 public:
     bool validUtf8(vector<int>& data) {
-        int count = 0;
-        for (auto c : data) {
-            if (count == 0) {
-                if ((c >> 5) == 0b110) count = 1;
-                else if ((c >> 4) == 0b1110) count = 2;
-                else if ((c >> 3) == 0b11110) count = 3;
-                else if ((c >> 7)) return false;
-            } else {
-                if ((c >> 6) != 0b10) return false;
-                count--;
+        
+        int n=data.size();
+        vector<string> v(n);
+        
+        for(int i=0;i<n;i++)
+        {
+            v[i]=bitset<8>(data[i]).to_string();
+            // cout << v[i] << " ";
+        }
+        
+        int i=0;
+        while(i<n)
+        {
+            if(v[i].substr(0,5)=="11110")
+            {
+                if(i+3>=n)
+                {
+                    return false;
+                }
+                i++;
+                if(v[i].substr(0,2)=="10")
+                {
+                    i++;
+                }
+                else return false;
+                if(v[i].substr(0,2)=="10")
+                {
+                    i++;
+                }
+                else return false;
+                if(v[i].substr(0,2)=="10")
+                {
+                    i++;
+                }
+                else return false;
+                
+            }
+            else if(v[i].substr(0,4)=="1110")
+            {
+                if(i+2>=n)
+                {
+                    return false;
+                }
+                i++;
+                if(v[i].substr(0,2)=="10")
+                {
+                    i++;
+                }
+                else return false;
+                if(v[i].substr(0,2)=="10")
+                {
+                    i++;
+                }
+                else return false;
+            }
+            else if(v[i].substr(0,3)=="110")
+            {
+                if(i+1>=n)
+                {
+                    return false;
+                }
+                i++;
+                if(v[i].substr(0,2)=="10")
+                {
+                    i++;
+                }
+                else return false;
+            }
+            else if(v[i].substr(0,1)=="0")
+            {
+                i++;
+            }
+            else
+            {
+                return false;
             }
         }
-        return count == 0;
+        
+        return true;
+        
     }
 };
