@@ -1,37 +1,37 @@
+bool cmp(pair<char,int> &p1, pair<char,int> &p2)
+{
+    return p1.second<p2.second;
+}
+
 class Solution {
 public:
     string customSortString(string order, string s) {
         
+        int rank[26]={INT_MAX};
+        
+        int m=order.size();
+        
+        for(int i=0;i<m;i++)
+        {
+            rank[order[i]-'a']=i;
+        }
+        
+        vector<pair<char,int>> v;
+        
         int n=s.size();
-        int freq[26]={0};
         
         for(int i=0;i<n;i++)
         {
-            int index=s[i]-'a';
-            freq[index]++;
+            v.push_back({s[i],rank[s[i]-'a']});
         }
         
-        int j=0;
-        string ans=string(n,'a');
-        int m=order.size();
-        for(int i=0;i<m;i++)
-        {
-            int index=order[i]-'a';
-            while(freq[index]--)
-            {
-                ans[j]=(char)(index+'a');
-                j++;
-            }
-        }
+        sort(v.begin(),v.end(),cmp);
         
-        for(int i=0;i<26;i++)
+        string ans="";
+        
+        for(int i=0;i<n;i++)
         {
-            while(freq[i]>0)
-            {
-                ans[j]=(char)(i+'a');
-                j++;
-                freq[i]--;
-            }
+            ans+=v[i].first;
         }
         
         return ans;
