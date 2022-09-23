@@ -1,3 +1,5 @@
+int t=1;
+
 bool cmp(pair<int,int> &p1, pair<int,int> &p2)
 {
     if(p1.second!=p2.second)
@@ -13,6 +15,9 @@ public:
     vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
         
         int n=arr1.size(),m=arr2.size();
+        
+        
+        
         vector<int> stm(1001,INT_MAX);
         
         for(int i=0;i<m;i++)
@@ -33,6 +38,8 @@ public:
         {
             arr1[i]=v[i].first;
         }
+        
+      
         
         return arr1;
         
