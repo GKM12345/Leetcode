@@ -10,36 +10,33 @@ class Solution{
 public:	
 	vector<int> printUnsorted(int arr[], int n) {
 	    // code here
-	    int arr2[n];
-	    for(int i=0;i<n;i++) arr2[i]=arr[i];
-	    sort(arr,arr+n);
-	    int s=0,e=n-1;
+	    int si=0,ei=n-1;
+	    int Max=arr[si];
 	    
-	    while(s<n)
+	    for(int i=1;i<n;i++)
 	    {
-	        if(arr[s]!=arr2[s])
+	        if(arr[i]<Max)
 	        {
-	            break;
+	            si=i;
 	        }
-	        s++;
+	        Max=max(Max,arr[i]);
+	    }
+	    int Min=arr[n-1];
+	    for(int i=n-2;i>=0;i--)
+	    {
+	        if(arr[i]>Min)
+	        {
+	            ei=i;
+	        }
+	        Min=min(Min,arr[i]);
 	    }
 	    
-	    while(e>0)
-	    {
-	        if(arr[e]!=arr2[e])
-	        {
-	            break;
-	        }
-	        e--;
-	    }
-	    
-	    
-	    if(e==-1 || s==n)
+	    if(si==0 && ei==n-1)
 	    {
 	        return {0,0};
 	    }
 	    
-	    return {s,e};
+	    return {ei,si};
 	}
 };
 
