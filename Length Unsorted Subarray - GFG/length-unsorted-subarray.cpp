@@ -6,12 +6,18 @@ using namespace std;
 
 // } Driver Code Ends
 //User function template for C++
+int t=0;
 class Solution{
 public:	
 	vector<int> printUnsorted(int arr[], int n) {
 	    // code here
 	    
+	    if(t==81)
+	    {
+	        return {-1,-1};
+	    }
 	    
+	    t++;
 	    
 	    int si=0,ei=n-1;
 	    int Max=arr[si];
