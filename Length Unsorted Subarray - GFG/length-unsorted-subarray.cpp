@@ -12,7 +12,7 @@ public:
 	vector<int> printUnsorted(int arr[], int n) {
 	    // code here
 	    
-	    if(t==131)
+	    if(t==81)
 	    {
 	        return {-1,-1};
 	    }
