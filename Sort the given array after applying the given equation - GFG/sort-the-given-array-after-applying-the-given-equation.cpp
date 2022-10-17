@@ -43,7 +43,7 @@ vector<long long> sortArray(vector<long long>arr, int n, long long A, long long 
         ans[i]=A*arr[i]*arr[i]+B*arr[i]+C;
     }
     
-    sort(ans.begin(),ans.end());
+    // sort(ans.begin(),ans.end());
     
     return ans;
     
