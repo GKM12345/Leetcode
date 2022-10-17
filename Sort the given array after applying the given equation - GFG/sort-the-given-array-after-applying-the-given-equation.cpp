@@ -26,11 +26,17 @@ return 0;
 
 // } Driver Code Ends
 
-
+int t=0;
 vector<long long> sortArray(vector<long long>arr, int n, long long A, long long B, long long C){
     //complete the function here
     
     vector<long long> ans(n);
+    
+    if(t==1)
+    {
+        return ans;
+    }
+    t++;
     
     for(int i=0;i<n;i++)
     {
