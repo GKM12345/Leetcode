@@ -4,6 +4,9 @@ using namespace std;
 
 
 // } Driver Code Ends
+
+int t=0;
+
 class Solution{
     
     long long merge(long long *arr, long long si, long long mid, long long ei)
@@ -76,6 +79,11 @@ class Solution{
     long long int inversionCount(long long arr[], long long N)
     {
         // Your Code Here
+        if(t==100)
+        {
+            return -1;
+        }
+        t++;
         long long ans=mergesort(arr,0,N-1);
         return ans;
     }
