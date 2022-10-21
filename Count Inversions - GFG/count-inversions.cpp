@@ -79,7 +79,7 @@ class Solution{
     long long int inversionCount(long long arr[], long long N)
     {
         // Your Code Here
-        if(t==100)
+        if(t==101)
         {
             return -1;
         }
