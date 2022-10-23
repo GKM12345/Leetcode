@@ -1,40 +1,37 @@
 class Solution {
 public:
-    int sumFourDivisors(vector<int>& nums) {
+    int sumFourDivisors(vector<int>& arr) {
         
         int ans=0;
-        
-        int n=nums.size();
-        
+        int n=arr.size();
         for(int i=0;i<n;i++)
         {
-            int divisor=0;
-            int sum=0;
-            for(int j=1;j*j<=nums[i];j++)
+            long long sum=0;
+            int count=0;
+            for(int j=1;j*j<=arr[i];j++)
             {
-                if(nums[i]%j==0)
+                if(arr[i]%j==0)
                 {
-                    if(j==(nums[i]/j))
+                    if(j*j==arr[i])
                     {
+                        count+=1;
                         sum+=j;
-                        divisor+=1;
                     }
                     else
                     {
+                        count+=2;
                         sum+=j;
-                        sum+=(nums[i]/j);
-                        divisor+=2;
+                        sum+=arr[i]/j;
                     }
+                    
                 }
             }
-            
-            if(divisor==4)
+            if(count==4)
             {
                 ans+=sum;
             }
-            
         }
-        
+
         return ans;
         
     }
