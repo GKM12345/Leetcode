@@ -15,7 +15,7 @@ public:
         {
             if(prime[i]==1)
             {
-                for(int j=i;i*j<n;j++)
+                for(int j=i;i*j<=n;j++)
                 {
                     prime[i*j]=0;
                 }
