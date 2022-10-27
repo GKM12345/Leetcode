@@ -79,11 +79,6 @@ class Solution{
     long long int inversionCount(long long arr[], long long N)
     {
         // Your Code Here
-        if(t==101)
-        {
-            return -1;
-        }
-        t++;
         long long ans=mergesort(arr,0,N-1);
         return ans;
     }
