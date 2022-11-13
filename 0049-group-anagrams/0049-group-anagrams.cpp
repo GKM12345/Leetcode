@@ -13,16 +13,7 @@ public:
             string temp=strs[i];
             sort(temp.begin(),temp.end());
             
-            if(mp.count(temp)==0)
-            {
-                vector<string> temp1;
-                temp1.push_back(strs[i]);
-                mp.insert({temp,temp1});
-            }
-            else
-            {
                 mp[temp].push_back(strs[i]);
-            }
         }
         
         vector<vector<string>> ans;
