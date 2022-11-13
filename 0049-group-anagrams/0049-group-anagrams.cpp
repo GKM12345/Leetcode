@@ -27,14 +27,14 @@ public:
         
         vector<vector<string>> ans;
         
-        for(auto it:mp)
+        unordered_map<string,vector<string>> :: iterator it=mp.begin();
+        while(it!=mp.end())
         {
-            ans.push_back(it.second);
+            ans.push_back(it->second);
+            it++;
         }
         
-       
-            
-        
+    
         
         return ans;
         
