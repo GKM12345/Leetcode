@@ -6,7 +6,7 @@ public:
         
         int n=strs.size();
         
-        map<string,vector<string>> mp;
+        unordered_map<string,vector<string>> mp;
             
         for(int i=0;i<n;i++)
         {
