@@ -26,6 +26,7 @@ public:
 				    val+=arr[i]/j;
                 }
 			}
+            if(cnt>4) break;
 		}
 		
 		if(cnt==4)
