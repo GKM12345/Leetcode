@@ -4,30 +4,37 @@ public:
         
         int ans=0;
         int n=arr.size();
-        for(int i=0;i<n;i++)
-        {
-            int sq=sqrt(arr[i]);
-            if(sq*sq==arr[i])
-            {
-                continue;
-            }
-            long long sum=0;
-            int count=0;
-            for(int j=1;j*j<=arr[i];j++)
-            {
-                if(arr[i]%j==0)
+        // ll ans=0;
+	
+	for(int i=0;i<n;i++)
+	{
+		long long val=0;
+		long long cnt=0;
+		for(int j=1;j*j<=arr[i];j++)
+		{
+			if(arr[i]%j==0)
+			{
+                if(j*j==arr[i])
                 {
-                    // cout << j << " " << arr[i]/j << endl;
-                    count+=2;
-                    sum+=j;
-                    sum+=arr[i]/j;
+                    cnt+=1;
+                    val+=j;
                 }
-            }
-            if(count==4)
-            {
-                ans+=sum;
-            }
-        }
+                else
+                {
+                    cnt+=2;
+				    val+=j;
+				    val+=arr[i]/j;
+                }
+			}
+		}
+		
+		if(cnt==4)
+		{
+			ans+=val;
+		}
+	}
+	
+	//cout << ans << endl;
 
         return ans;
         
