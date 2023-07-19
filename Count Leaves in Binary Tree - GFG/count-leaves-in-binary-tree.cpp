@@ -117,14 +117,11 @@ struct Node
 int countLeaves(Node* root)
 {
   // Your code here
+  if(!root) {
+      return 0;
+  }
   if(!root->left && !root->right) {
       return 1;
-  }
-  else if(!root->left) {
-      return countLeaves(root->right);
-  }
-  else if(!root->right) {
-      return countLeaves(root->left);
   }
   return countLeaves(root->left)+countLeaves(root->right);
 }
