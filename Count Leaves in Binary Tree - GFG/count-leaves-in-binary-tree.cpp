@@ -114,14 +114,24 @@ struct Node
          10
       /      \ 
    20       30 */
+   
+void helper(Node *root, int &count) {
+    if(!root) {
+        return;
+    }
+    if(!root->left && !root->right) {
+        count++;
+        return;
+    }
+    helper(root->left, count);
+    helper(root->right, count);
+}
+
 int countLeaves(Node* root)
 {
   // Your code here
-  if(!root) {
-      return 0;
-  }
-  if(!root->left && !root->right) {
-      return 1;
-  }
-  return countLeaves(root->left)+countLeaves(root->right);
+    int countLeaveNode = 0;
+    helper(root, countLeaveNode);
+    return countLeaveNode;
 }
+    
