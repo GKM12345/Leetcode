@@ -108,19 +108,25 @@ struct Node
 }; */
 
 class Solution {
+    
+    Node* mirrorTree(Node *node) {
+        if(!node) {
+            return NULL;
+        }
+        Node *lmt = mirrorTree(node->left);
+        Node *rmt = mirrorTree(node->right);
+        
+        node->left = rmt;
+        node->right = lmt;
+        
+        return node;
+    }
+    
   public:
     // Function to convert a binary tree into its mirror tree.
     void mirror(Node* node) {
         // code here
-        if(!node) {
-            return;
-        }
-        Node* temp = node->left;
-        node->left = node->right;
-        node->right = temp;
-        
-        mirror(node->left);
-        mirror(node->right);
+        node = mirrorTree(node);
     }
 };
 
